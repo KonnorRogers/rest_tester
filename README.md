@@ -25,11 +25,11 @@ Things you may want to cover:
 
 * After following the installation:
 
-    rails server
+      rails server
 
 * Then in another terminal but still in root directory:
 
-    ruby app/script/ruby_tester.rb
+      ruby app/script/ruby_tester.rb
 
 * This will bring up a pry REPL in the CLI
 * Avaiable commands are listed
