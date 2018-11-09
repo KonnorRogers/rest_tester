@@ -5,7 +5,7 @@ require 'rest-client'
 URL = 'localhost:3000/users/'
 INPUTS = {
   get: {
-    show: 'show/5',
+    show: '/1',
     edit: '5/edit',
     new: 'new',
     index: ''
@@ -17,6 +17,10 @@ INPUTS = {
 
   put: {
     put_update: '20'
+  },
+
+  post: {
+    create: ''
   },
 
   delete: {
@@ -39,9 +43,10 @@ def cli_input
   return :exit if input == :exit
 
   INPUTS.each do |_key, hash|
-    return nil unless hash.key?(input)
+    return input if hash.key?(input)
   end
-  input
+
+  nil
 end
 
 def method_url_logic(input:)
@@ -58,13 +63,17 @@ def method_url_logic(input:)
   end
 end
 
+def payload
+  { param1: 'param1', param2: 'param2' }
+end
+
 def cli_loop
   loop do
     greeting
     input = cli_input
 
-    p input
 
+    p input
     exit if input == :exit
     next if input.nil?
 
@@ -72,7 +81,9 @@ def cli_loop
 
     url = URL + @url_ext
 
-    puts RestClient.send(@method, url)
+    puts RestClient.send(@method, url) if @method == :get
+    puts RestClient.send(@method, url, payload) if @method != :get
+
     puts @method
     puts url
   end
