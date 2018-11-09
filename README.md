@@ -1,9 +1,6 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+# Purpose
+* RestClient gem usage for practice making REST requests
+* Created as part of TheOdinProject curriculum
 
 # Ruby Version
 * Ruby 2.5.1
