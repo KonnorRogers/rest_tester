@@ -5,20 +5,33 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+# Ruby Version
+* Ruby 2.5.1
 
-* System dependencies
+# System dependencies
+* Rails 5.2.1
+* Pry
+* Rest-Client
+* Others listed in Gemfile
 
-* Configuration
+# Installation
 
-* Database creation
+    git clone https://github.com/ParamagicDev/rest_tester.git
+    cd /path/to/rest_tester
+    gem install bundler
+    bundle install
 
-* Database initialization
+# Usage
 
-* How to run the test suite
+* After following the installation:
 
-* Services (job queues, cache servers, search engines, etc.)
+    rails server
 
-* Deployment instructions
+* Then in another terminal but still in root directory:
 
-* ...
+    ruby app/script/ruby_tester.rb
+
+* This will bring up a pry REPL in the CLI
+* Avaiable commands are listed
+* Only GET REST requests supported
+* Examines the localhost:3000 via RestClient
